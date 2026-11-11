@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>샨디 길드원 모집</title>
+    <title>샨디 길드원 모집 🌸</title>
+    <!-- 구글 폰트: 다정한 느낌의 나눔라운드 폰트 적용 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Square+Round:wght@400;700;800&display=swap" rel="stylesheet">
+    
     <style>
         * {
             box-sizing: border-box;
@@ -12,201 +17,251 @@
         }
 
         body {
-            font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
-            background-color: #f4f6fc;
-            color: #333;
-            line-height: 1.6;
+            font-family: 'Nanum Square Round', sans-serif;
+            background-color: #f7faf5; /* 맑고 따뜻한 연연두빛 바탕 */
+            color: #2d3748;
+            line-height: 1.7;
         }
 
-        /* 헤더 영역 */
+        /* 메인 상단 헤더: 봄 숲속 테마 */
         header {
-            background: linear-gradient(135deg, #4a154b 0%, #6b11ff 50%, #b522ff 100%);
+            background: linear-gradient(135deg, #a8e063 0%, #56ab2f 50%, #48a23f 100%);
             color: white;
             text-align: center;
-            padding: 70px 20px 60px;
+            padding: 80px 20px 70px;
+            position: relative;
+            overflow: hidden;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 10px 30px rgba(86, 171, 47, 0.2);
+        }
+
+        /* 헤더 배경에 흐려지는 잔물결 정성 효과 */
+        header::before {
+            content: "🌱 🌸 🍃 🌿 🌸 🌱";
+            position: absolute;
+            top: 15px;
+            left: 0;
+            right: 0;
+            font-size: 1.5rem;
+            opacity: 0.35;
+            letter-spacing: 20px;
         }
 
         .badge {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            margin-bottom: 12px;
-            letter-spacing: 1px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(5px);
+            padding: 7px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         header h1 {
-            font-size: 2.8rem;
-            margin-bottom: 12px;
-            letter-spacing: -1px;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 14px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         header p {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
+            font-weight: 400;
             opacity: 0.95;
-            font-weight: 300;
+            max-width: 600px;
+            margin: 0 auto;
+            word-break: keep-all;
         }
 
-        /* 메인 컨테이너 */
+        /* 본문 컨테이너 */
         .container {
-            max-width: 800px;
-            margin: -30px auto 50px;
+            max-width: 760px;
+            margin: -30px auto 60px;
             padding: 0 20px;
         }
 
-        /* 카드 섹션 */
+        /* 공통 카드 디자인 */
         .card {
-            background: white;
-            border-radius: 18px;
-            padding: 32px;
-            margin-bottom: 24px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 36px 30px;
+            margin-bottom: 28px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+            border: 1px solid #eef4eb;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
         }
 
         .card h2 {
-            font-size: 1.35rem;
-            color: #6b11ff;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #f0e6ff;
-            padding-bottom: 10px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #2e6b27;
+            margin-bottom: 22px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            border-bottom: 2px dashed #e2efe0;
+            padding-bottom: 12px;
         }
 
-        /* 길드 기본 정보 테이블 */
+        /* 1. 기본 정보 카키&연두 그리드 */
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 14px;
         }
 
         .info-item {
-            background: #fafafa;
-            padding: 16px;
-            border-radius: 12px;
-            border: 1px solid #f0f0f0;
+            background: #f4f9f2;
+            padding: 18px;
+            border-radius: 16px;
+            border: 1px solid #e4f0e1;
+            text-align: center;
         }
 
         .info-item .label {
             font-size: 0.85rem;
-            color: #777;
-            margin-bottom: 4px;
+            color: #688563;
+            margin-bottom: 6px;
         }
 
         .info-item .value {
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #222;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #2e5329;
         }
 
-        /* 가입 조건 태그 목록 */
+        /* 2. 조건 태그들 (새싹 연두 & 꽃잎 분홍) */
+        .sub-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #43633e;
+            margin: 18px 0 10px;
+        }
+
         .tag-group {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-bottom: 16px;
         }
 
         .tag {
-            background-color: #eef2ff;
-            color: #4f46e5;
-            padding: 8px 16px;
+            background-color: #edf7e9;
+            color: #3b7a32;
+            padding: 8px 18px;
             border-radius: 20px;
             font-size: 0.95rem;
-            font-weight: bold;
+            font-weight: 700;
+            border: 1px solid #d8ebd3;
         }
 
         .tag.danger {
-            background-color: #ffeef0;
-            color: #e11d48;
+            background-color: #fff0f3;
+            color: #d9486b;
+            border-color: #ffd6df;
         }
 
-        .sub-title {
-            font-size: 0.95rem;
-            font-weight: bold;
-            color: #555;
-            margin: 16px 0 8px;
-        }
-
-        /* 자랑거리 리스트 */
+        /* 3. 자랑거리 숲속 나뭇잎 박스 */
         .advantage-list {
             list-style: none;
         }
 
         .advantage-list li {
-            padding: 12px 16px;
-            background: #f8f9ff;
-            border-left: 4px solid #6b11ff;
-            border-radius: 0 10px 10px 0;
-            margin-bottom: 10px;
-            font-weight: 500;
+            padding: 16px 20px;
+            background: #f6faf4;
+            border-left: 5px solid #6cb059;
+            border-radius: 6px 16px 16px 6px;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+            color: #334e2e;
         }
 
-        /* 규칙 리스트 */
+        .advantage-list li strong {
+            color: #276318;
+        }
+
+        /* 4. 길드 규칙 */
         .rule-list {
-            padding-left: 20px;
+            padding-left: 10px;
+            list-style: none;
         }
 
         .rule-list li {
-            margin-bottom: 10px;
-            color: #444;
+            margin-bottom: 14px;
+            position: relative;
+            padding-left: 28px;
+            color: #4a5568;
         }
 
-        /* 가입 신청 버튼 그룹 */
+        .rule-list li::before {
+            content: "🌿";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        /* 5. 가입 신청 버튼 (화사한 봄 꽃잎 분홍&연두 조합) */
         .btn-group {
             text-align: center;
-            margin-top: 36px;
+            margin-top: 40px;
         }
 
         .btn {
             display: inline-block;
-            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
-            color: white;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            color: #5c2237;
             font-size: 1.25rem;
-            font-weight: bold;
+            font-weight: 800;
             text-decoration: none;
-            padding: 18px 42px;
+            padding: 18px 46px;
             border-radius: 50px;
-            box-shadow: 0 10px 20px rgba(255, 65, 108, 0.35);
-            transition: all 0.2s ease;
+            box-shadow: 0 10px 25px rgba(255, 154, 158, 0.4);
+            transition: all 0.25 ease;
+            border: 2px solid #ffffff;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 14px 25px rgba(255, 65, 108, 0.45);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 14px 30px rgba(255, 154, 158, 0.5);
+            background: linear-gradient(135deg, #ff898f 0%, #fbbde4 100%);
         }
 
         .contact-note {
-            margin-top: 14px;
-            font-size: 0.95rem;
-            color: #666;
+            margin-top: 16px;
+            font-size: 1rem;
+            color: #61755e;
+            font-weight: 700;
         }
 
         /* 푸터 */
         footer {
             text-align: center;
-            color: #888;
+            color: #8c9e88;
             font-size: 0.9rem;
-            padding: 24px;
+            padding: 30px 20px;
         }
     </style>
 </head>
 <body>
 
-    <!-- 메인 타이틀 헤더 -->
+    <!-- 헤더: 따스한 봄빛 언덕 느낌 -->
     <header>
-        <span class="badge">테일즈런너 친목 길드</span>
-        <h1>✨ 샨디 ✨</h1>
-        <p>길드의 시작을 함께 하실 소중한 인연을 기다립니다.</p>
+        <span class="badge">🌱 테일즈런너 친목 길드</span>
+        <h1>🌸 샨디 🌸</h1>
+        <p>길드의 첫 싹을 함께 틔울 소중한 인연을 따뜻하게 기다립니다.</p>
     </header>
 
     <div class="container">
         
-        <!-- 1. 길드 기본 정보 -->
+        <!-- 1. 기본 정보 -->
         <div class="card">
-            <h2>📌 길드 기본 정보</h2>
+            <h2>🪴 길드 숲 둘러보기</h2>
             <div class="info-grid">
                 <div class="info-item">
                     <div class="label">길드 레벨</div>
@@ -214,10 +269,10 @@
                 </div>
                 <div class="info-item">
                     <div class="label">길드 성향</div>
-                    <div class="value">친목 위주</div>
+                    <div class="value">소소한 친목</div>
                 </div>
                 <div class="info-item">
-                    <div class="label">주요 접속 시간대</div>
+                    <div class="label">주요 접속 시간</div>
                     <div class="value">🌙 00시 ~ 03시 (새벽반)</div>
                 </div>
                 <div class="info-item">
@@ -229,60 +284,4 @@
 
         <!-- 2. 가입 조건 -->
         <div class="card">
-            <h2>✅ 필수 가입 조건</h2>
-            
-            <div class="sub-title">가입 가능 자격</div>
-            <div class="tag-group">
-                <span class="tag">나이: 만 19세 이상</span>
-                <span class="tag">계급: 빨홀리 이상</span>
-                <span class="tag">카카오톡 오픈채팅 필수</span>
-                <span class="tag">디스코드 필수</span>
-            </div>
-
-            <div class="sub-title">🚫 가입 불가 대상</div>
-            <div class="tag-group">
-                <span class="tag danger">이중 길드</span>
-                <span class="tag danger">철새</span>
-                <span class="tag danger">여미새 / 남미새</span>
-                <span class="tag danger">팜인 / 노고인</span>
-                <span class="tag danger">부계정</span>
-            </div>
-        </div>
-
-        <!-- 3. 길드 자랑거리 -->
-        <div class="card">
-            <h2>🎁 샨디 길드만의 자랑거리</h2>
-            <ul class="advantage-list">
-                <li>🌙 <strong>새벽을 책임집니다!</strong> 심심한 새벽 시간대에 길마가 상시 출몰해 같이 놉니다.</li>
-                <li>🎮 <strong>다양한 게임 즐기기!</strong> 테런 외에도 스팀 게임, 마인크래프트 등 종합 게임 진행!</li>
-                <li>💼 <strong>편안한 현생 배려!</strong> 현생을 우선시하는 부담 없는 분위기입니다.</li>
-            </ul>
-        </div>
-
-        <!-- 4. 길드 규칙 -->
-        <div class="card">
-            <h2>📢 길드 규칙</h2>
-            <ul class="rule-list">
-                <li><strong>매너 준수:</strong> 비매너 행위(욕설, 철새 행동, 사기 등) 적발 시 즉시 강퇴 처리될 수 있습니다.</li>
-                <li><strong>미접속 기준:</strong> 사유 없이 7일 이상 미접속 시 자동 탈퇴 처리됩니다.</li>
-                <li><strong>소통 채널:</strong> 공지 확인 및 소통을 위해 오픈채팅과 디스코드 참석은 필수입니다.</li>
-                <li><strong>길드 퀘스트:</strong> 매일 12시 10분 진행 / 주 2회 길퀘 필수 참여 (또는 주 3회 1인 길퀘 완료).</li>
-            </ul>
-        </div>
-
-        <!-- 5. 가입 문의 버튼 -->
-        <div class="btn-group">
-            <a href="https://open.kakao.com/o/sGPqdeLh" target="_blank" class="btn">
-                💬 카카오톡 오픈프로필로 문의하기
-            </a>
-            <p class="contact-note">인게임 문의: <strong>[카츠키]</strong> 님에게 쪽지나 귓말 보내기!</p>
-        </div>
-
-    </div>
-
-    <footer>
-        <p>© 2026 샨디 Guild. All rights reserved.</p>
-    </footer>
-
-</body>
-</html>
+            <h2>🌱 가입 조건 & 약속</h2>
