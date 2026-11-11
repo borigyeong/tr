@@ -1,287 +1,681 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>샨디 길드원 모집 🌸</title>
-    <!-- 구글 폰트: 다정한 느낌의 나눔라운드 폰트 적용 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Square+Round:wght@400;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SHANDY | 테일즈런너 길드</title>
 
-        body {
-            font-family: 'Nanum Square Round', sans-serif;
-            background-color: #f7faf5; /* 맑고 따뜻한 연연두빛 바탕 */
-            color: #2d3748;
-            line-height: 1.7;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
 
-        /* 메인 상단 헤더: 봄 숲속 테마 */
-        header {
-            background: linear-gradient(135deg, #a8e063 0%, #56ab2f 50%, #48a23f 100%);
-            color: white;
-            text-align: center;
-            padding: 80px 20px 70px;
-            position: relative;
-            overflow: hidden;
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
-            box-shadow: 0 10px 30px rgba(86, 171, 47, 0.2);
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        /* 헤더 배경에 흐려지는 잔물결 정성 효과 */
-        header::before {
-            content: "🌱 🌸 🍃 🌿 🌸 🌱";
-            position: absolute;
-            top: 15px;
-            left: 0;
-            right: 0;
-            font-size: 1.5rem;
-            opacity: 0.35;
-            letter-spacing: 20px;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        .badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(5px);
-            padding: 7px 20px;
-            border-radius: 25px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
+body {
+    background: #0d1024;
+    color: #f4f0ff;
+    font-family: 'Gowun Dodum', sans-serif;
+    overflow-x: hidden;
+}
 
-        header h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 14px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+/* 배경 */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, #38305e55, transparent 35%),
+        radial-gradient(circle at 80% 70%, #65456d33, transparent 35%),
+        linear-gradient(135deg, #0d1024, #17152f, #10182b);
+    z-index: -2;
+}
 
-        header p {
-            font-size: 1.2rem;
-            font-weight: 400;
-            opacity: 0.95;
-            max-width: 600px;
-            margin: 0 auto;
-            word-break: keep-all;
-        }
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, #ffffffaa 50%, transparent),
+        radial-gradient(1px 1px at 70% 20%, #ffffff88 50%, transparent),
+        radial-gradient(2px 2px at 80% 80%, #ffffff99 50%, transparent),
+        radial-gradient(1px 1px at 40% 70%, #ffffff77 50%, transparent),
+        radial-gradient(2px 2px at 90% 40%, #ffffff88 50%, transparent);
+    background-size: 300px 300px;
+    animation: twinkle 5s infinite alternate;
+}
 
-        /* 본문 컨테이너 */
-        .container {
-            max-width: 760px;
-            margin: -30px auto 60px;
-            padding: 0 20px;
-        }
+@keyframes twinkle {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
 
-        /* 공통 카드 디자인 */
-        .card {
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 36px 30px;
-            margin-bottom: 28px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
-            border: 1px solid #eef4eb;
-            transition: transform 0.2s ease;
-        }
+/* 네비게이션 */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0d1024bb;
+    backdrop-filter: blur(12px);
+    z-index: 100;
+    border-bottom: 1px solid #ffffff12;
+}
 
-        .card:hover {
-            transform: translateY(-2px);
-        }
+.logo {
+    font-family: 'Gowun Batang', serif;
+    font-size: 24px;
+    letter-spacing: 5px;
+    color: #e8d6ff;
+    font-weight: bold;
+}
 
-        .card h2 {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: #2e6b27;
-            margin-bottom: 22px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 2px dashed #e2efe0;
-            padding-bottom: 12px;
-        }
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
 
-        /* 1. 기본 정보 카키&연두 그리드 */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 14px;
-        }
+nav a {
+    text-decoration: none;
+    color: #c8c3dd;
+    font-size: 13px;
+    transition: 0.3s;
+}
 
-        .info-item {
-            background: #f4f9f2;
-            padding: 18px;
-            border-radius: 16px;
-            border: 1px solid #e4f0e1;
-            text-align: center;
-        }
+nav a:hover {
+    color: #e7bfff;
+}
 
-        .info-item .label {
-            font-size: 0.85rem;
-            color: #688563;
-            margin-bottom: 6px;
-        }
+/* 메인 */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 120px 20px 80px;
+}
 
-        .info-item .value {
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: #2e5329;
-        }
+.hero-sub {
+    color: #c5a9e9;
+    letter-spacing: 7px;
+    font-size: 12px;
+    margin-bottom: 25px;
+}
 
-        /* 2. 조건 태그들 (새싹 연두 & 꽃잎 분홍) */
-        .sub-title {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #43633e;
-            margin: 18px 0 10px;
-        }
+.hero h1 {
+    font-family: 'Gowun Batang', serif;
+    font-size: clamp(65px, 12vw, 125px);
+    letter-spacing: 12px;
+    color: #f2e7ff;
+    text-shadow: 0 0 35px #c69bff66;
+    font-weight: 400;
+}
 
-        .tag-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
+.hero-line {
+    width: 80px;
+    height: 1px;
+    background: #c9a5ed;
+    margin: 35px 0;
+}
 
-        .tag {
-            background-color: #edf7e9;
-            color: #3b7a32;
-            padding: 8px 18px;
-            border-radius: 20px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            border: 1px solid #d8ebd3;
-        }
+.hero p {
+    color: #d0c9e3;
+    line-height: 2.2;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
 
-        .tag.danger {
-            background-color: #fff0f3;
-            color: #d9486b;
-            border-color: #ffd6df;
-        }
+.hero-btn {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 15px 40px;
+    border: 1px solid #c9a5ed;
+    color: #f2e7ff;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: 0.3s;
+    font-size: 14px;
+}
 
-        /* 3. 자랑거리 숲속 나뭇잎 박스 */
-        .advantage-list {
-            list-style: none;
-        }
+.hero-btn:hover {
+    background: #c9a5ed;
+    color: #17152f;
+    box-shadow: 0 0 25px #c9a5ed66;
+}
 
-        .advantage-list li {
-            padding: 16px 20px;
-            background: #f6faf4;
-            border-left: 5px solid #6cb059;
-            border-radius: 6px 16px 16px 6px;
-            margin-bottom: 12px;
-            font-size: 1.05rem;
-            color: #334e2e;
-        }
+/* 공통 섹션 */
+section {
+    padding: 110px 8%;
+}
 
-        .advantage-list li strong {
-            color: #276318;
-        }
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
 
-        /* 4. 길드 규칙 */
-        .rule-list {
-            padding-left: 10px;
-            list-style: none;
-        }
+.section-title span {
+    color: #b69bdc;
+    font-size: 11px;
+    letter-spacing: 5px;
+}
 
-        .rule-list li {
-            margin-bottom: 14px;
-            position: relative;
-            padding-left: 28px;
-            color: #4a5568;
-        }
+.section-title h2 {
+    font-family: 'Gowun Batang', serif;
+    font-size: 35px;
+    font-weight: 400;
+    margin-top: 15px;
+    letter-spacing: 3px;
+}
 
-        .rule-list li::before {
-            content: "🌿";
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
+.section-title p {
+    color: #9994b3;
+    font-size: 13px;
+    margin-top: 15px;
+}
 
-        /* 5. 가입 신청 버튼 (화사한 봄 꽃잎 분홍&연두 조합) */
-        .btn-group {
-            text-align: center;
-            margin-top: 40px;
-        }
+/* 길드 정보 */
+.info-grid {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
 
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
-            color: #5c2237;
-            font-size: 1.25rem;
-            font-weight: 800;
-            text-decoration: none;
-            padding: 18px 46px;
-            border-radius: 50px;
-            box-shadow: 0 10px 25px rgba(255, 154, 158, 0.4);
-            transition: all 0.25 ease;
-            border: 2px solid #ffffff;
-        }
+.info-card {
+    background: #ffffff09;
+    border: 1px solid #ffffff18;
+    padding: 30px 15px;
+    text-align: center;
+    border-radius: 12px;
+    transition: 0.3s;
+}
 
-        .btn:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 14px 30px rgba(255, 154, 158, 0.5);
-            background: linear-gradient(135deg, #ff898f 0%, #fbbde4 100%);
-        }
+.info-card:hover {
+    transform: translateY(-5px);
+    border-color: #bd9ce8;
+    background: #ffffff12;
+}
 
-        .contact-note {
-            margin-top: 16px;
-            font-size: 1rem;
-            color: #61755e;
-            font-weight: 700;
-        }
+.info-card span {
+    display: block;
+    font-size: 12px;
+    color: #aaa2c7;
+    margin-bottom: 15px;
+}
 
-        /* 푸터 */
-        footer {
-            text-align: center;
-            color: #8c9e88;
-            font-size: 0.9rem;
-            padding: 30px 20px;
-        }
-    </style>
+.info-card strong {
+    font-size: 18px;
+    color: #e8d7ff;
+}
+
+/* 가입 조건 */
+.condition {
+    max-width: 850px;
+    margin: auto;
+    background: #ffffff08;
+    border: 1px solid #ffffff18;
+    border-radius: 15px;
+    padding: 40px;
+}
+
+.condition-item {
+    display: flex;
+    align-items: center;
+    padding: 22px 10px;
+    border-bottom: 1px solid #ffffff12;
+    gap: 25px;
+}
+
+.condition-item:last-child {
+    border-bottom: none;
+}
+
+.condition-item .label {
+    min-width: 130px;
+    color: #c5a4e9;
+    font-size: 14px;
+}
+
+.condition-item .value {
+    color: #e2dced;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* 장점 */
+.benefit-grid {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.benefit-card {
+    padding: 45px 25px;
+    text-align: center;
+    border-radius: 15px;
+    background: linear-gradient(145deg, #ffffff10, #ffffff04);
+    border: 1px solid #ffffff18;
+    transition: 0.3s;
+}
+
+.benefit-card:hover {
+    transform: translateY(-8px);
+    border-color: #b99bdf;
+}
+
+.benefit-card .icon {
+    font-size: 35px;
+    margin-bottom: 25px;
+}
+
+.benefit-card h3 {
+    font-size: 19px;
+    color: #e8d7ff;
+    margin-bottom: 15px;
+}
+
+.benefit-card p {
+    font-size: 13px;
+    color: #aaa4bd;
+    line-height: 1.9;
+}
+
+/* 규칙 */
+.rule-list {
+    max-width: 850px;
+    margin: auto;
+}
+
+.rule {
+    padding: 25px 30px;
+    margin-bottom: 15px;
+    background: #ffffff08;
+    border-left: 3px solid #b99bdf;
+    border-radius: 5px;
+}
+
+.rule h3 {
+    color: #ddc6fa;
+    font-size: 16px;
+    margin-bottom: 12px;
+}
+
+.rule p {
+    color: #aaa4bd;
+    font-size: 13px;
+    line-height: 2;
+}
+
+/* 문의 */
+.contact {
+    text-align: center;
+    background: linear-gradient(180deg, transparent, #9b76c318);
+}
+
+.contact-box {
+    max-width: 700px;
+    margin: auto;
+    padding: 55px 25px;
+    border: 1px solid #ffffff20;
+    border-radius: 20px;
+    background: #ffffff08;
+}
+
+.contact-box h2 {
+    font-family: 'Gowun Batang', serif;
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.contact-box p {
+    color: #aaa4bd;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.contact-btn {
+    display: inline-block;
+    margin: 30px 8px 0;
+    padding: 14px 30px;
+    background: #c7a4e8;
+    color: #17152f;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.contact-btn:hover {
+    background: #e8d5ff;
+    transform: translateY(-3px);
+}
+
+.contact-btn.secondary {
+    background: transparent;
+    color: #e5d4fa;
+    border: 1px solid #c7a4e8;
+}
+
+/* 푸터 */
+footer {
+    text-align: center;
+    padding: 35px 15px;
+    border-top: 1px solid #ffffff12;
+    color: #77728d;
+    font-size: 11px;
+    line-height: 2;
+    letter-spacing: 1px;
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+    nav {
+        padding: 18px 5%;
+    }
+
+    nav ul {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 10px;
+    }
+
+    .logo {
+        font-size: 19px;
+        letter-spacing: 3px;
+    }
+
+    section {
+        padding: 85px 6%;
+    }
+
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .benefit-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .condition {
+        padding: 20px;
+    }
+
+    .condition-item {
+        gap: 12px;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .condition-item .label {
+        min-width: auto;
+    }
+
+    .section-title h2 {
+        font-size: 28px;
+    }
+
+    .hero h1 {
+        letter-spacing: 6px;
+    }
+}
+
+@media (max-width: 420px) {
+    nav ul {
+        gap: 8px;
+    }
+
+    nav a {
+        font-size: 9px;
+    }
+
+    .logo {
+        font-size: 16px;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <!-- 헤더: 따스한 봄빛 언덕 느낌 -->
-    <header>
-        <span class="badge">🌱 테일즈런너 친목 길드</span>
-        <h1>🌸 샨디 🌸</h1>
-        <p>길드의 첫 싹을 함께 틔울 소중한 인연을 따뜻하게 기다립니다.</p>
-    </header>
+<div class="stars"></div>
 
-    <div class="container">
-        
-        <!-- 1. 기본 정보 -->
-        <div class="card">
-            <h2>🪴 길드 숲 둘러보기</h2>
-            <div class="info-grid">
-                <div class="info-item">
-                    <div class="label">길드 레벨</div>
-                    <div class="value">Lv. 8</div>
-                </div>
-                <div class="info-item">
-                    <div class="label">길드 성향</div>
-                    <div class="value">소소한 친목</div>
-                </div>
-                <div class="info-item">
-                    <div class="label">주요 접속 시간</div>
-                    <div class="value">🌙 00시 ~ 03시 (새벽반)</div>
-                </div>
-                <div class="info-item">
-                    <div class="label">길드 마스터</div>
-                    <div class="value">카츠키</div>
-                </div>
-            </div>
+<!-- 네비게이션 -->
+<nav>
+    <div class="logo">SHANDY</div>
+    <ul>
+        <li><a href="#about">길드 소개</a></li>
+        <li><a href="#condition">가입 조건</a></li>
+        <li><a href="#benefit">길드 장점</a></li>
+        <li><a href="#rule">길드 규칙</a></li>
+        <li><a href="#contact">가입 문의</a></li>
+    </ul>
+</nav>
+
+<!-- 메인 -->
+<header class="hero">
+    <div class="hero-sub">TALES RUNNER GUILD</div>
+    <h1>SHANDY</h1>
+    <div class="hero-line"></div>
+    <p>
+        길드의 시작을 함께 하실<br>
+        소중한 인연을 기다립니다.
+    </p>
+    <a href="#contact" class="hero-btn">함께하기 →</a>
+</header>
+
+<!-- 길드 소개 -->
+<section id="about">
+    <div class="section-title">
+        <span>ABOUT US</span>
+        <h2>길드 소개</h2>
+        <p>우리의 작은 공간, 샨디</p>
+    </div>
+
+    <div class="info-grid">
+        <div class="info-card">
+            <span>GUILD LEVEL</span>
+            <strong>Lv. 8</strong>
+        </div>
+        <div class="info-card">
+            <span>GUILD TYPE</span>
+            <strong>친목</strong>
+        </div>
+        <div class="info-card">
+            <span>ACTIVE TIME</span>
+            <strong>00시 ~ 03시</strong>
+        </div>
+        <div class="info-card">
+            <span>GUILD MASTER</span>
+            <strong>카츠키</strong>
+        </div>
+    </div>
+</section>
+
+<!-- 가입 조건 -->
+<section id="condition">
+    <div class="section-title">
+        <span>JOIN US</span>
+        <h2>가입 조건</h2>
+        <p>샨디와 함께하기 위해 꼭 확인해 주세요.</p>
+    </div>
+
+    <div class="condition">
+        <div class="condition-item">
+            <div class="label">나이 제한</div>
+            <div class="value">만 19세 이상</div>
         </div>
 
-        <!-- 2. 가입 조건 -->
-        <div class="card">
-            <h2>🌱 가입 조건 & 약속</h2>
+        <div class="condition-item">
+            <div class="label">계급 제한</div>
+            <div class="value">빨홀리 이상</div>
+        </div>
+
+        <div class="condition-item">
+            <div class="label">필수 소통 수단</div>
+            <div class="value">카카오톡 오픈채팅 및 디스코드 필수 참여</div>
+        </div>
+
+        <div class="condition-item">
+            <div class="label">가입 불가 대상</div>
+            <div class="value">
+                이중 길드 / 철새 / 여미새·남미새 / 팜인·노고인 / 부계정
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 길드 장점 -->
+<section id="benefit">
+    <div class="section-title">
+        <span>OUR BENEFITS</span>
+        <h2>샨디의 특별함</h2>
+        <p>함께라서 더 즐거운 샨디의 일상</p>
+    </div>
+
+    <div class="benefit-grid">
+        <div class="benefit-card">
+            <div class="icon">🌙</div>
+            <h3>새벽의 길마</h3>
+            <p>
+                심심하고 조용한 새벽,<br>
+                길마가 언제든 출몰합니다.
+            </p>
+        </div>
+
+        <div class="benefit-card">
+            <div class="icon">🎮</div>
+            <h3>종합 게임</h3>
+            <p>
+                테런뿐만 아니라<br>
+                스팀 게임, 마인크래프트까지!
+            </p>
+        </div>
+
+        <div class="benefit-card">
+            <div class="icon">☁️</div>
+            <h3>현생 우선</h3>
+            <p>
+                바쁜 현실도 소중하니까.<br>
+                서로의 일상을 존중합니다.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- 길드 규칙 -->
+<section id="rule">
+    <div class="section-title">
+        <span>GUILD RULE</span>
+        <h2>길드 규칙</h2>
+        <p>모두가 즐겁게 지낼 수 있도록 지켜주세요.</p>
+    </div>
+
+    <div class="rule-list">
+        <div class="rule">
+            <h3>01. 기본 매너</h3>
+            <p>
+                욕설, 사기, 비매너 행위 및 철새 행동은
+                길드 퇴출 사유가 될 수 있습니다.
+            </p>
+        </div>
+
+        <div class="rule">
+            <h3>02. 접속 관리</h3>
+            <p>
+                별도의 사유 없이 7일 이상 미접속 시
+                자동 탈퇴 처리됩니다.
+            </p>
+        </div>
+
+        <div class="rule">
+            <h3>03. 소통 채널</h3>
+            <p>
+                카카오톡 오픈채팅과 디스코드 참여는 필수입니다.
+            </p>
+        </div>
+
+        <div class="rule">
+            <h3>04. 길드 퀘스트</h3>
+            <p>
+                매일 00시 10분 진행합니다.<br>
+                주 2회 길드 퀘스트 참여 또는
+                주 3회 1인 길드 퀘스트 진행은 필수입니다.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- 가입 문의 -->
+<section id="contact" class="contact">
+    <div class="section-title">
+        <span>CONTACT US</span>
+        <h2>우리, 함께할까요?</h2>
+        <p>샨디의 새로운 인연을 기다리고 있습니다.</p>
+    </div>
+
+    <div class="contact-box">
+        <h2>WELCOME TO SHANDY</h2>
+        <p>
+            가입 문의는 언제든 환영합니다.<br>
+            아래 버튼을 통해 편하게 연락해 주세요.
+        </p>
+
+        <a href="https://open.kakao.com/o/sGPqdeLh"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="contact-btn">
+            오픈카카오톡 문의
+        </a>
+
+        <a href="javascript:void(0)"
+           onclick="copyNickname()"
+           class="contact-btn secondary">
+            카츠키 닉네임 복사
+        </a>
+
+        <p style="margin-top:25px; font-size:12px;">
+            GAME : 테일즈런너<br>
+            귓말 및 쪽지 : 카츠키
+        </p>
+    </div>
+</section>
+
+<footer>
+    <div style="font-size:18px; letter-spacing:5px; color:#c9a5ed;">
+        SHANDY
+    </div>
+    <p>TALES RUNNER GUILD</p>
+    <p>우리의 인연이 시작되는 곳, SHANDY.</p>
+    <p style="margin-top:12px;">© 2026 SHANDY. ALL RIGHTS RESERVED.</p>
+</footer>
+
+<script>
+function copyNickname() {
+    navigator.clipboard.writeText("카츠키")
+        .then(() => alert("카츠키가 복사되었습니다!"))
+        .catch(() => alert("복사에 실패했습니다. 직접 입력해 주세요."));
+}
+</script>
+
+</body>
+</html>
